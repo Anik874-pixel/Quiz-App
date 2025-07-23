@@ -81,7 +81,7 @@ const Quiz = () => {
                 <button onClick={reset}>Reset</button>
             </> : <></>}
 
-            <button className='back-btn' onClick={() => navigate('/')}>Home</button>
+            <button className='back-btn' onClick={() => navigate('/')}>Back</button>
         </div>
     )
 }

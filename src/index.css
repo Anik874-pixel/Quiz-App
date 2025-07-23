@@ -26,3 +26,38 @@ body {
         transform: scale(1);
     }
 }
+
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+        font-size: 90%;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+
+    h2 {
+        font-size: 1.4rem !important;
+    }
+
+    p {
+        font-size: 1rem !important;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem !important;
+        padding: 12px !important;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        font-size: 1rem !important;
+        padding: 10px !important;
+    }
+}

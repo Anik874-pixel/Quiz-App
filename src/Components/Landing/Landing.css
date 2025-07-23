@@ -84,3 +84,18 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 600px) {
+  .landing h1 {
+    font-size: 1.8rem;
+  }
+
+  .landing p {
+    font-size: 1rem;
+  }
+
+  .landing button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
