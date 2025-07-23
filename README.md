@@ -15,6 +15,13 @@ Designed to deliver a smooth and engaging user experience across multiple domain
 
 ---
 
+## 🔗 Live Demo
+
+Hosted on Vercel —  
+[👉 Click here to view the live app](https://quiz-app-one-omega-83.vercel.app/)
+
+---
+
 ## 🛠 Tech Stack
 
 | Technology     | Description                    |
