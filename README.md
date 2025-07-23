@@ -1,12 +1,53 @@
-# React + Vite
+# 🎯 Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive and responsive quiz application built with **React**, **TypeScript**, and **Tailwind CSS**.  
+Designed to deliver a smooth and engaging user experience across multiple domains such as **HTML**, **CSS**, **JavaScript**, and more.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📚 Category-wise quiz selection
+- ✅ Multiple choice questions with instant feedback
+- 🧠 Real-time score tracking
+- ⚡ Smooth transitions and animations using Framer Motion
+- 📱 Fully responsive design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+| Technology     | Description                    |
+|----------------|--------------------------------|
+| React.js       | Frontend library               |
+| TypeScript     | Type-safe JavaScript           |
+| Tailwind CSS   | Utility-first CSS framework    |
+| Framer Motion  | Animation and transition lib   |
+
+---
+
+## 📂 Project Status
+
+🚧 **Currently in Development**  
+- Core quiz functionality implemented  
+- Domain filtering and scoring complete  
+- Result page and backend integration in progress
+
+---
+
+## 🖥️ Getting Started
+
+To run this project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/aniketkumar/quiz-app.git
+
+# Navigate to project directory
+cd quiz-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
