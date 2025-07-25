@@ -5,15 +5,8 @@
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(to bottom right, #ece9f1, #d8c7ff);
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
     color: #2b2b2b;
-    animation: backgroundFade 1.2s ease-in-out;
 }
 
 @keyframes backgroundFade {
