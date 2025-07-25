@@ -1,16 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Landing.css';
+import { useNavigate } from 'react-router-dom';
 
 const Landing = () => {
   const navigate = useNavigate();
 
   return (
     <div className="landing-page">
-      <div className="landing-content">
-        <h1>Welcome to the Quiz App 🚀</h1>
-        <p>Test your knowledge with fun and challenging questions!</p>
-        <button onClick={() => navigate('/domains')}>Start Quiz</button>
+      <div className="hero">
+        <h1 className="main-heading">🚀 Ignite Your Mind</h1>
+        <p className="sub-heading">Challenge yourself. Discover your strengths. Level up with every quiz.</p>
+        <p className="quote">"The mind is not a vessel to be filled, but a fire to be kindled." 🔥</p>
+        <div className="cta-buttons">
+          <button onClick={() => navigate('/domains')} className="start-btn">Start Quiz</button>
+        </div>
       </div>
     </div>
   );

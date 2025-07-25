@@ -1,13 +1,28 @@
 .quiz-page {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
-    padding: 20px;
-    margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a9dff5, #e6b5eb);
+  background-size: 400% 400%;
+  animation: quizGradientFlow 8s ease infinite;
+  padding: 20px;
+  margin: 0;
 }
+
+@keyframes quizGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 .container {
     width: 640px;
@@ -177,6 +192,12 @@
     transform: scale(1.01);
 }
 
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4d4f;
+    margin-bottom: 10px;
+}
 
 
 @media (max-width: 600px) {
@@ -216,5 +237,11 @@
 
     .back-btn:active {
         transform: translateX(-50%) translateY(-1px) scale(1.01);
+    }
+
+    .timer {
+        font-size: 1.2rem;
+        padding: 6px 16px;
+        margin: 8px 0;
     }
 }
