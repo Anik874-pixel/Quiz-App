@@ -5,6 +5,9 @@ import { isAuthenticated } from '../../utils/auth';
 import { domains } from '../../Data/domains';
 import './DomainSelector.css';
 
+const API = import.meta.env.VITE_API_URL;
+
+
 const DomainSelector = () => {
   const navigate = useNavigate();
   const [selectedDomain, setSelectedDomain] = useState(null);
@@ -23,7 +26,7 @@ const DomainSelector = () => {
       }
 
       try {
-        await axios.get('http://localhost:8000/protected', {
+        await axios.get(`${API}/protected`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

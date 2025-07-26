@@ -5,11 +5,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { isAuthenticated } from '../../utils/auth';
 
+const API = import.meta.env.VITE_API_URL;
+
 const Quiz = () => {
     const { domain } = useParams();
     const navigate = useNavigate();
 
-    // ✅ Auth check inside component and inside hook
+
     useLayoutEffect(() => {
         const checkAuth = async () => {
             try {
@@ -24,7 +26,7 @@ const Quiz = () => {
                     return;
                 }
 
-                await axios.get('http://localhost:8000/protected', {
+                await axios.get(`${API}/protected`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
