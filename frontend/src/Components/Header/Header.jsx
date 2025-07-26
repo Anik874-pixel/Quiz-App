@@ -19,8 +19,8 @@ const Header = () => {
 
       <nav className={isOpen ? 'open' : ''}>
         <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-        <Link to="/domains" onClick={() => setIsOpen(false)}>Quiz</Link>
-        <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </nav>
     </header>
   );

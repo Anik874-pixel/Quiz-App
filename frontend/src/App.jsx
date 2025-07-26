@@ -5,6 +5,9 @@ import DomainSelector from './Components/DomainSelector/DomainSelector';
 import { useParams } from 'react-router-dom';
 import Landing from './Components/Landing/Landing';
 import Header from './Components/Header/Header';
+import Login from "./Components/Auth/Login";
+import Register from "./Components/Auth/Register";
+
 
 
 const QuizWrapper = () => {
@@ -15,12 +18,14 @@ const QuizWrapper = () => {
 const App = () => {
   return (
     <>
-    <Header/>
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/domains" element={<DomainSelector />} />
-      <Route path="/quiz/:domain" element={<QuizWrapper />} />
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/domains" element={<DomainSelector />} />
+        <Route path="/quiz/:domain" element={<QuizWrapper />} />
+      </Routes>
     </>
   );
 };

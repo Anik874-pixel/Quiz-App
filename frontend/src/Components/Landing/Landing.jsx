@@ -12,7 +12,7 @@ const Landing = () => {
         <p className="sub-heading">Challenge yourself. Discover your strengths. Level up with every quiz.</p>
         <p className="quote">"The mind is not a vessel to be filled, but a fire to be kindled." 🔥</p>
         <div className="cta-buttons">
-          <button onClick={() => navigate('/domains')} className="start-btn">Start Quiz</button>
+          <button onClick={() => navigate('/Login')} className="start-btn">Let's Begin</button>
         </div>
       </div>
     </div>

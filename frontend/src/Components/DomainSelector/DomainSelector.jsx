@@ -1,11 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { isAuthenticated } from '../../utils/auth';
 import { domains } from '../../Data/domains';
 import './DomainSelector.css';
 
 const DomainSelector = () => {
   const navigate = useNavigate();
   const [selectedDomain, setSelectedDomain] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (!isAuthenticated()) {
+        navigate('/login');
+        return;
+      }
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/login');
+        return;
+      }
+
+      try {
+        await axios.get('http://localhost:8000/protected', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } catch (err) {
+        navigate('/login');
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   const startQuiz = () => {
     if (selectedDomain) {
@@ -22,8 +51,7 @@ const DomainSelector = () => {
           {domains.map((domain) => (
             <div
               key={domain.id}
-              className={`domain-card ${selectedDomain === domain.id ? 'selected' : ''
-                }`}
+              className={`domain-card ${selectedDomain === domain.id ? 'selected' : ''}`}
               onClick={() => setSelectedDomain(domain.id)}
             >
               <h2>{domain.name}</h2>
@@ -39,7 +67,7 @@ const DomainSelector = () => {
           Start Quiz
         </button>
 
-        <button className='back-btn' onClick={() => navigate('/')}>Home</button>
+        <button className="back-btn" onClick={() => navigate('/')}>Home</button>
       </div>
     </div>
   );

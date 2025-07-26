@@ -1,11 +1,41 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import './Quiz.css';
 import { data } from '../../assets/data';
 import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { isAuthenticated } from '../../utils/auth';
 
 const Quiz = () => {
     const { domain } = useParams();
     const navigate = useNavigate();
+
+    // ✅ Auth check inside component and inside hook
+    useLayoutEffect(() => {
+        const checkAuth = async () => {
+            try {
+                if (!isAuthenticated()) {
+                    navigate('/login');
+                    return;
+                }
+
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/login');
+                    return;
+                }
+
+                await axios.get('http://localhost:8000/protected', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+            } catch (err) {
+                navigate('/login');
+            }
+        };
+
+        checkAuth();
+    }, [navigate]);
 
     const filteredData = data.filter((item) => item.domain === domain);
 
@@ -25,7 +55,6 @@ const Quiz = () => {
     const [lock, setLock] = useState(false);
     const [score, setScore] = useState(0);
     const [result, setResult] = useState(false);
-
     const [timeLeft, setTimeLeft] = useState(60);
 
     const Option1 = useRef(null);
@@ -42,11 +71,9 @@ const Quiz = () => {
                     if (!lock) {
                         option_array[question.ans - 1].current.classList.add("Correct");
                     }
-
                     setTimeout(() => {
                         next(true);
                     }, 1000);
-
                     return 60;
                 }
                 return prev - 1;
@@ -55,7 +82,6 @@ const Quiz = () => {
 
         return () => clearInterval(countdown);
     }, [index, lock]);
-
 
     const checkAns = (e, ans) => {
         if (!lock) {
@@ -70,7 +96,6 @@ const Quiz = () => {
         }
     };
 
-
     const handleAutoNext = () => {
         if (!lock) {
             option_array[question.ans - 1].current.classList.add("Correct");
@@ -80,7 +105,6 @@ const Quiz = () => {
             next();
         }, 1000);
     };
-
 
     const next = (force = false) => {
         if (lock || force) {
@@ -99,7 +123,6 @@ const Quiz = () => {
         }
     };
 
-
     const reset = () => {
         setIndex(0);
         setQuestion(filteredData[0]);
@@ -108,7 +131,6 @@ const Quiz = () => {
         setResult(false);
         setTimeLeft(60);
     };
-
 
     return (
         <div className="quiz-page">
@@ -134,7 +156,6 @@ const Quiz = () => {
                         <div className='index'>{index + 1} of {filteredData.length} Questions</div>
                     </>
                 )}
-
                 <button className='back-btn' onClick={() => navigate('/domains')}>Back</button>
             </div>
         </div>
