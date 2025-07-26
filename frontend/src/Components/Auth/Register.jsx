@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -17,7 +19,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8000/auth/register", {
+      await axios.post(`${API}/auth/register`, {
         username: name.trim(),
         email: email.trim(),
         password: password.trim(),

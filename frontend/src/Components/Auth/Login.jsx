@@ -3,6 +3,8 @@ import axios from "axios";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -21,7 +23,7 @@ const Login = () => {
       params.append("username", email.trim());
       params.append("password", password.trim());
 
-      const res = await axios.post("http://localhost:8000/auth/login", params, {
+      const res = await axios.post(`${API}/auth/login`, params, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
